@@ -39,7 +39,8 @@ source venv/bin/activate  # ou venv\Scripts\activate no Windows
 pip install flask flask_sqlalchemy werkzeug
 
 # Execute a aplicação
-python app.py
+python app.py 
+```
 
 ---
 
