@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    background-color: #f5f5f5;
+}
+
+.pagamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.descricao-pagamento {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-pagamento {
+    width: 100%;
+}
+
+.form-100, .form-50 {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-50 {
+    display: inline-block;
+    width: calc(50% - 10px);
+    vertical-align: top;
+}
+
+input[type="text"], input[type="number"], input[type="radio"], button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #1465bb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000080;
+}
+
+.outro-pagamento {
+    margin: 20px 0;
+}
+.form-pagamento .form-pagamento-option {
+    display: flex;
+    align-items: center;
+}
+
+.form-pagamento .paypal{
+    background-image: url('https://img.icons8.com/?size=100&id=13611&format=png&color=000000');
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.form-pagamento .multibanco {
+    background-image: url('https://img.icons8.com/?size=100&id=HWbgAihjYdU_&format=png&color=000000');
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-size: cover;
+    margin-left: 10px;
+}

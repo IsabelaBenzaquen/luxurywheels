@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" href="{{ url_for('static', filename='pagamento.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finalizar Reserva</title>
+</head>
+<body>
+    <section class="pagamento">
+        <div class="descricao-pagamento">
+            <h4>Parabéns! Você fez uma ótima escolha, agora falta somente escolher a forma de pagamento para finalizar a reserva.</h4>
+
+        <br>
+        <h2>Resumo da Reserva</h2>
+        <br>
+    <p>Veículo escolhido: {{ modelo }}</p>
+    <p>Valor da diária: {{ valor_diaria }}€</p>
+    <p>Data de Início: {{ data_inicio }}</p>
+    <p>Data de Fim: {{ data_fim }}</p>
+    <p>Total: {{ valor_diaria | float * dias | round(2) if valor_diaria and dias else 0  }}€</p>
+    </div>
+        <a href="{{ url_for('minhas_reservas') }}">Voltar para minhas reservas</a>
+        <br>
+        <form method="POST" action="{{ url_for('pagamento') }}">
+            <input type="hidden" name="modelo" value="{{ modelo }}">
+            <input type="hidden" name="valorDiaria" value="{{ valor_diaria }}">
+            <input type="hidden" name="dias" value="{{ dias }}">
+
+        <div class="form-pagamento">
+
+                <div class="form-100">
+                    <h4>Insira os dados do pagamento</h4>
+                    <br>
+                    <label for="nif">Nif:</label>
+                    <input type="number" id="nif" name="nif" placeholder="xxx xxx xxx"/>
+                </div>
+                <div class="form-100">
+                    <label for="numero_cartao">Dados do Cartão</label>
+                    <input type="text" id="numero_cartao" name="numero_cartao" placeholder="1234 1234 1234 1234" />
+                    <div class="form-50">
+                        <input class="validade_cartao" type="text" id="validade_cartao" name="validade_cartao" placeholder="MM/AA" />
+                        <input class="cvc-cartao" type="text" id="cvc" name="cvc" placeholder="CVC" />
+                    </div>
+                </div>
+                <div class="form-100">
+                    <label for="nome_cartao">Nome no Cartão:</label>
+                    <input type="text" id="nome_cartao" name="nome_cartao" placeholder="Nome no Cartão" />
+                </div>
+                <div class="outro-pagamento">
+                    <h4>Outros Métodos de Pagamento:</h4>
+                </div>
+                <div class="form-pagamento">
+                    <div class="form-50">
+                        <input type="radio" id="multibanco" name="metodo_pago" value="multibanco">
+                        <label for="multibanco">Multibanco</label>
+                        <div class="form-pagamento-option" style="display: flex; align-items: center;">
+                            <div class="multibanco"></div>
+                        </div>
+                    </div>
+                    <div class="form-50">
+                        <input type="radio" id="paypal" name="metodo_pago" value="paypal">
+                        <label for="paypal">Paypal</label>
+                        <div class="form-pagamento-option" style="display: flex; align-items: center;">
+                            <div class="paypal"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-100">
+                    <button type="submit">Finalizar</button>
+                </div>
+        </div>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.titulo{
+    font-family: "Dancing Script", cursive;
+}
+.menu{
+    display: flex;
+    color: #00bc8c;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+}
+.nav-item{
+    display: flex;
+    color: #00bc8c;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.dropdown-menu {
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown-item {
+    background-color: transparent;
+    color: #00bc8c;
+}
+
+.nav-item li{
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+
+}
+.menu ul li, .nav-item li {
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 10px;
+}
+
+
+.menu ul li:hover>ul{
+    display: block;
+    margin: 0px;
+    padding: 0px;
+
+}
+.subtitulo {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.entrar button{
+    font-family: "Playfair Display", serif;
+    margin: 20px;
+    background-color: transparent;
+    color: #00bc8c;
+
+}
+input[type="text"] {
+    width: 150px;
+}
+
+.custom-procurar {
+    background-color: #00bc8c;
+    color: white;
+    border: none;
+}
+
+.custom-procurar:hover {
+    background-color: #009a7a;
+}
+
+
+.menu button-Pesquisar{
+    font-family: "Playfair Display", serif;
+    margin: 20px;
+    color: #00bc8c;
+}
+
+.flex-container {
+    display: flex;
+    background: #1465bb;
+    text-align: center;
+    font-family: "Dancing Script", cursive;
+    margin: 20px;
+}
+
+.mensagem{
+    font-size:200%;
+    text-align: center;
+    margin: 20px;
+    margin-top: 70px;
+}
+.mensagem label {
+    font-size:70%;
+    text-align: left;
+    margin: 20px;
+    font-family: "Playfair Display", serif;
+    color: #00bc8c;
+    margin-top: 60px;
+    font-weight: bold;
+}
+input[type="date"] {
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    color: #0f0c29;
+    text-size: 5%;
+}
+.mensagem button{
+    width: 80%;
+    margin-top: 20px;
+    font-family: "Playfair Display", serif;
+    background: #0f0c29;
+    color: #00bc8c;
+    font-size: 1.0rem;
+    font-weight: 550;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    display: center;
+}
+.flex-container img {
+    margin-left: 50px;
+    width: 750px;
+    height: 350px;
+    float: right;
+    display: flex;
+    text-align: center;
+}
+h2{
+    font-size: 300%;
+    font-family: "Playfair Display", serif;
+    color: #00bc8c;
+    margin: 20px;
+}
+
+body {
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    display: flex;
+    align-items: center;
+}
+
+.imgprimeira{
+    background-color: #3498db;
+    width: 750px;
+    height: 350px;
+    float: right;
+    display: flex;
+    text-align: center;
+    margin: 13px;
+}
+.carro h2{
+    border-bottom: 2px dotted #00bc8c;
+    display: 100%;
+    padding-bottom: 5px;
+
+}
+
+.imagem-carro img, .imagem-moto img {
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.filtro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.filtro select, .filtro input[type="submit"] {
+    background-color: transparent;
+    color: #00bc8c;
+    border: 1px solid #00bc8c;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.filtro input[type="submit"]:hover {
+    background-color: #1465bb;
+    color: white;
+}
+
+.imagem-carro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.imagem-carro img {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+}
+
+.menu-button {
+    cursor: pointer;
+}
+
+.moto h2{
+    border-bottom: 2px dotted #00bc8c;
+    display: 100%;
+    padding-bottom: 5px;
+}
+
+.imagem-moto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.imagem-moto img {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+}
+
+.imgpesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.imgpesquisa img {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Reservas</title>
+    <!-- bootswatchm-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- Fonte google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Fonte de tudo diferente do título -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- folha de estilo -->
+    <link rel= "stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="container-fluid">
+    <a class="navbar-brand" href="#"><h1 class="display-9 text-left mt-9 titulo">Luxury</h1>
+        <h1 class="display-9 text-left mt-9 titulo">Wheels</h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="menu">
+        <nav>
+            <a href="/">Página Inicial</a>
+        </nav>
+      </div>
+      <div class="container">
+        <h2>Minhas Reservas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Veículo</th>
+                    <th>Valor Diário</th>
+                    <th>Data Início</th>
+                    <th>Data Fim</th>
+                    <th>Dias</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+
+    {% for reserva in reservas %}
+    <tr>
+        <td>{{ reserva.veiculo }}</td>
+        <td>{{ reserva.valorDiaria }}€</td>
+        <td>{{ reserva.dataInicio }}</td>
+        <td>{{ reserva.dataFim }}</td>
+        <td>{{ reserva.dias }}</td>
+        <td>{{ reserva.total }}€</td>
+        <td>
+            <form action="{{ url_for('editar_reserva', reserva_id=reserva.id) }}" method="POST" style="display:inline;">
+                <input type="date" name="dataInicio" required>
+                <input type="date" name="dataFim" required>
+                <button type="submit">Editar</button>
+            </form>
+            <form action="{{ url_for('cancelar_reserva', reserva_id=reserva.id) }}" method="POST" style="display:inline;">
+                <button type="submit">Cancelar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+        </table>
+    </div>
+
+</body>
+</html>

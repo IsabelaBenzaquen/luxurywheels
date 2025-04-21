@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+<header>
+    <meta charset="UTF-8">
+    <title>Luxury Wheels</title>
+    <!-- bootswatchm-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- Fonte google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <!-- Fonte de tudo diferente do título -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- folha de estilo -->
+    <link rel= "stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link href="app.py">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="container-fluid">
+    <a class="navbar-brand" href="#"><h1 class="display-9 text-left mt-9 titulo">Luxury</h1>
+        <h1 class="display-9 text-left mt-9 titulo">Wheels</h1></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="menu">
+        <nav class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Locadora de Veículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/reservas">As minhas reservas</a>
+        </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Aluguel
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#carro">Carro</a></li>
+            <li><a class="dropdown-item" href="#moto">Moto</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true"></a>
+        </li>
+      </ul>
+      <form action="/"  method="POST" class="d-flex align-items-center">
+          <label for="search_input" class="form-label me-2">Pesquisar:</label>
+          <input type="text" name="search_input" id="search_input" placeholder="Pesquisar" aria-label="Search" class="form-control me-2">
+          <button type="submit" class="btn custom-procurar">Procurar</button>
+      </form>
+
+        <div class="entrar">
+    <button onclick="window.location.href='login'" style="display: flex; align-items: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+    </button>
+</div>
+</div>
+</nav>
+  </nav>
+<div class="flex-container">
+    <div class="mensagem">
+        <p>Seja qual for a sua necessidade, a Luxury pensou em toda a facilidade e comodidade para você</p>
+
+            <label>Data do aluguel:</label>
+            <input type="date" id="dataInicio" name="dataInicio" required>
+            <label>até:</label>
+            <input type="date" id="dataFim" name="dataFim" required>
+            <button type="button" id="pesquisarVeiculo">Pesquisar veículo</button>
+
+    </div>
+
+      <img class="imgprimeira" src="{{ url_for('static', filename= 'imagem.png') }}">
+
+</div>
+
+<section class="filtro">
+    <div id="carro"></div>
+    <div class="carro">
+        <h2>Nossos Carros</h2>
+        <div class="filtro">
+            <form action="/" method="POST">
+    <select name="marca">
+        <option value="">Marca</option>
+        <option value="Honda">Honda</option>
+        <option value="Opel">Opel</option>
+        <option value="Volkswagen">Volkswagen</option>
+        <option value="Hyundai">Hyundai</option>
+        <option value="BMW">BMW</option>
+        <option value="Tesla">Tesla</option>
+        <option value="Aston Martin">Aston Martin</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Lamborghini">Lamborghini</option>
+        <option value="Ranger Rover">Ranger Rover</option>
+
+    </select>
+    <select name="transmissao">
+        <option value="">Transmissão</option>
+        <option value="Automático">Automático</option>
+        <option value="Manual">Manual</option>
+    </select>
+    <select name="categoria">
+        <option value="">Categoria</option>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
+        <option value="Grande">Grande</option>
+        <option value="Luxo">Luxo</option>
+        <option value="SUV">SUV</option>
+    </select>
+    <select name="Valor da diária">
+        <option value="">Valor da Diária</option>
+        <option value="32">32€</option>
+        <option value="58">58€</option>
+        <option value="77">77€</option>
+        <option value="85">85€</option>
+        <option value="90">90€</option>
+        <option value="98">98€</option>
+        <option value="120">120€</option>
+        <option value="170">170€</option>
+        <option value="280">280€</option>
+    </select>
+    <input type="submit" value="Filtrar">
+</form>
+        <div class="imagem-carro">
+            {% for c in carro %}
+                <img src="{{ url_for('static', filename='carro/' + c['imagem'] + '.' + c['extensao']) }}"
+                    onclick="obterDadosReserva('{{ c['Modelo'] }}', '{{ c['Valor da diária'] }}');"/>
+            {% endfor %}
+                {% for c in resultados.carros %}
+                    <img src="{{ url_for('static', filename='carro/' + c.imagem + '.' + c.extensao) }}"
+                         onclick="obterDadosReserva('{{ c.modelo }}', '{{ c.valorDiaria }}');"/>
+                {% endfor %}
+
+        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section class="filtro">
+    <div id="moto"></div>
+    <div class="moto">
+        <h2>Nossas Motos</h2>
+        <div class="filtro">
+        <form action="/" method="POST">
+            <select name="marca">
+                <option value="">Marca</option>
+                <option value="Honda">Honda</option>
+                <option value="Guzzi">Guzzi</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Vespa">Vespa</option>
+                <option value="Yamaha">Yamaha</option>
+                <option value="BMW">BMW</option>
+            </select>
+    <select name="transmissao">
+        <option value="">Transmissão</option>
+        <option value="Automático">Automático</option>
+        <option value="Manual">Manual</option>
+    </select>
+    <select name="categoria">
+        <option value="">Categoria</option>
+        <option value="Pequeno">Pequeno</option>
+        <option value="Médio">Médio</option>
+        <option value="Grande">Grande</option>
+        <option value="Luxo">Luxo</option>
+    </select>
+    <select name="Valor da diária">
+        <option value="">Valor da Diária</option>
+        <option value="12">12€</option>
+        <option value="22">22€</option>
+        <option value="28">28€</option>
+        <option value="54">54€</option>
+
+    </select>
+    <input type="submit" value="Filtrar">
+</form>
+        <div class="imagem-moto">
+            {% for m in moto %}
+                <img src="{{ url_for('static', filename='moto/' + m['imagem'] + '.jpg') }}"
+                    onclick="obterDadosReserva('{{ m['Modelo'] }}', '{{ m['Valor da diária'] }}');"/>
+            {% endfor %}
+                {% for m in resultados.motos %}
+                    <img src="{{ url_for('static', filename='moto/' + m.imagem + '.' + m.extensao) }}"
+                         onclick="obterDadosReserva('{{ m.modelo }}', '{{ m.valorDiaria }}');"/>
+                {% endfor %}
+        </div>
+        </div>
+    </div>
+</div>
+</section>
+<div class="modal" id="reservaModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Deseja reservar esse veículo?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Veículo: <span id="veiculoSelecionado"></span></p>
+        <p>Valor Diário: <span id="valorDiaria"></span>€</p>
+        <p>Valor Total: <span id="valorTotal"></span>€</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="confirmarReserva" class="btn btn-primary">Continuar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    const pagamentoUrl = "{{ url_for('pagamento') }}";
+    let valorDiaria;
+    let veiculo;
+    let dataInicio, dataFim;
+
+    document.getElementById('pesquisarVeiculo').onclick = function() {
+        dataInicio = document.getElementById('dataInicio').value;
+        dataFim = document.getElementById('dataFim').value;
+        if (!dataInicio || !dataFim) {
+            alert("Por favor, escolha as datas de início e fim.");
+            return;
+        }
+        fetch('/armazenar_datas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dataInicio: dataInicio, dataFim: dataFim })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao armazenar as datas');
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert("Ocorreu um erro ao armazenar as datas.");
+    });
+};
+
+    function obterDadosReserva(modelo) {
+    fetch(`/reserva/${modelo}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                abrirModal(data.veiculo, data.valor_diaria);
+            }
+        })
+        .catch(error => console.error('Erro:', error));
+}
+function abrirModal(v, diaria) {
+    if (!dataInicio || !dataFim) {
+        alert("Por favor, escolha as datas antes de selecionar um veículo.");
+        return;
+    }
+
+        veiculo = v;
+        valorDiaria = parseFloat(diaria);
+        if (isNaN(valorDiaria)) {
+        alert("Valor da diária inválido.");
+        return;
+    }
+    console.log(valorDiaria);
+
+        document.getElementById('veiculoSelecionado').innerText = veiculo;
+        document.getElementById('valorDiaria').innerText = valorDiaria.toFixed(2);
+
+
+        let startDate = new Date(dataInicio);
+        let endDate = new Date(dataFim);
+        let dias = (endDate - startDate) / (1000 * 3600 * 24);
+
+        if (dias > 0) {
+            let total = valorDiaria * dias;
+            document.getElementById('valorTotal').innerText = total.toFixed(2);
+        } else {
+            document.getElementById('valorTotal').innerText = 'N/A';}
+        var myModal = new bootstrap.Modal(document.getElementById('reservaModal'));
+        myModal.show();
+    }
+    document.getElementById('confirmarReserva').onclick = function() {
+    if (dataInicio && dataFim) {
+        let startDate = new Date(dataInicio);
+        let endDate = new Date(dataFim);
+        let dias = (endDate - startDate) / (1000 * 3600 * 24);
+        if (dias > 0) {
+            let total = valorDiaria * dias;
+
+            fetch('/reservas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    veiculo: veiculo,
+                    valorDiaria: valorDiaria,
+                    dataInicio: dataInicio,
+                    dataFim: dataFim,
+                    dias: dias,
+                    total: total})
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Reserva realizada com sucesso!");
+
+                    window.location.href = `${pagamentoUrl}?modelo=${veiculo}&valorDiaria=${valorDiaria}`;
+                } else {
+                    alert("Erro ao realizar a reserva.");
+                }
+            })
+            .catch(error => console.error('Erro:', error));
+        } else {
+            alert("As datas de início e fim não são válidas.");
+        }
+    } else {
+        alert("Por favor, escolha as datas.");
+    }
+};
+</script>
+</body>
+</header>
+</html>
+
+
+

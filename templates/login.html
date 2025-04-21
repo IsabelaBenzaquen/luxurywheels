@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel= "stylesheet" href="{{ url_for('static', filename='janela.css') }}">
+
+</head>
+<body>
+    <main class="container">
+        <h2 class="display-8 text-center mt-8 subtitulo">Login</h2>
+
+            <br>
+        <form action="/login" method="POST">
+            <div class="input-field">
+                <label for="email">Endereço de email:</label>
+        <br>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="e-mail">
+                <div class="underline"></div>
+        <br>
+            </div>
+            <div class="input-field">
+                <label for="password">Senha:</label>
+      <br>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Senha">
+                <div class="underline"></div>
+      <br>
+      <br>
+            </div>
+
+        <div class="continue-button">
+            <button type="submit" class="continue-button">Enviar</button>
+        </div>
+        </form>
+            <br><br>
+        <div class="continue-button">
+            <a href="{{ url_for('cadastro') }}" class="continue-button">Cadastro</a>
+        </div>
+
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+</main>
+</body>
+</html>
